@@ -1,0 +1,19 @@
+ip         0     IP           # Internet protocol
+ipv6       41    IPv6         # Internet protocol IPv6
+udp        17    UDP          # User datagram protocol
+tcp        6     TCP          # Transmission control protocol
+
+
+
+echo                7/tcp
+telnet             23/tcp
+ssh                22/tcp
+ftp                21/tcp 
+
+
+11/User Access Verification
+
+Password:
+
+
+16/- échange de données non protégé

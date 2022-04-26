@@ -1,0 +1,55 @@
+sujet: magazin de livres
+bougriba mahdi
+bokri malek
+
+process: vente de livres
+actors: client, caisse, gestionnaire de stock
+steps:
+clients demande un livre
+caissiaire recoit une demande 
+caissiaire verifie la disponibilite du livre au stock
+reponse du gestionnaire de stock
+si	livreDisponible=true caissiaire reserve le livre
+	caissiaire informe le client
+        payer : lancer processus paiement
+	nb livre--(si la vente n'est pas annulee)
+sinon	caissiaire informe le client: livre non disponible
+        annuler la vente
+	lancer processus  gestion de stock
+fin vente de livres
+
+process: paiement
+actors: client, caissiaire, livreur
+steps:
+client choisit methode de paiement
+si	methode=paiement en ligne
+	client effectue le paiement via e-dinar ou mastercard
+	client peut choisir si sa commande sera livre a domicile
+	si livraison=true
+	livreur:=commande
+	livrer la commande t<72h
+sinon	paiement sur place
+fin paiement 
+
+
+
+process: gestion de stock
+actors: fournisseur, stock
+steps:si la vente est acceptée 
+nb livre -- 
+gestionnaire 
+sinon : gestionnaire demande des exemplaires de ce livre
+
+
+
+
+
+
+process: gestion de stock
+actors: fournisseur, stock
+steps:
+verifier stock
+si nbExemplaire<10 
+	demande aux fournisseur	des exemplaires 
+	attente delais de livraison
+fin gestion de stock

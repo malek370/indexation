@@ -1,0 +1,27 @@
+Problem: L- Two Shortest Paths
+
+Question: where's the a(i,j) in the example
+
+Answer: The statement of the problem asks about minimizing the distance. implicitly, you will have to find a grid that minimise the total distance, and then you have to ouput that distance
+
+
+
+
+Problem: D- Decrypting the Password
+
+Question: is the 4th test case true cuz there is only one substring divisible by 11
+
+Answer: It is indeed true:
+- The first one is '0' (the first zero in the substring)
+- The second one is '0' (the second such zero)
+- The final one is '4301'
+
+
+
+
+Problem: C- Co-sortable Strings
+
+Question: is "abb" considered a sorted
+
+Answer: Yes
+
