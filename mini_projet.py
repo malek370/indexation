@@ -23,6 +23,7 @@ import nltk
 
 import os
 
+#need to use it first time
 #nltk.download("book")
 
 
