@@ -23,7 +23,6 @@ import nltk
 
 import os
 
-#need to use it first time
 #nltk.download("book")
 
 
@@ -72,8 +71,13 @@ def contien(l,x):
       cont+=1
   return cont
 
-#def tf_idf():
-#  mytexts = nltk.TextCollection([filtered_sentence, word_tokens])
+def tf_idf(word_tokens,x):
+  filtered_sentence=filter(word_tokens)
+  mytexts = nltk.TextCollection([filtered_sentence, word_tokens])
+  if len(mytexts)==0:
+    return 0
+  return mytexts.tf_idf(x, word_tokens)
+
 
 l=os.listdir()
 f_txt=[]
@@ -86,9 +90,11 @@ x1=x
 ps1 = PorterStemmer()
 x=ps1.stem(x)
 txt={}
+txt1={}
 for i in f_txt:
   f=open(i,'r')
   txt[i]=word_tokenize(f.read())
+  txt1[i]=word_tokenize(f.read())
 for i in txt.keys():
   l1=filter(txt[i])
   txt[i]=raciner(txt[i])
@@ -96,9 +102,8 @@ txt=doc_retourne(x,txt)
 if len(txt)>0:
   y=contien(txt,x)
   for i in txt.keys():
-    print("documen {} nombre d occurance du mot {} avec un poid de {}".format(i,nb_occ(x,txt[i]),poid(x,txt[i],nb_doc,y)))   
+     print("documen {} nombre d occurance du mot {} avec un poid de {} et tf_idf {}".format(i,nb_occ(x,txt[i]),poid(x,txt[i],nb_doc,y),tf_idf(txt1[i],x1)))
   print("document le plus pertinent: {}".format(best_doc(x,txt,nb_doc,y)))
 else:
   print("n'existe pas")
-
 input("type enter to exit")
